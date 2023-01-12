@@ -1,2 +1,2 @@
 # bouncing
- Mozilla bouncing balls test solved 
+    Mozilla bouncing balls code explained with few changes

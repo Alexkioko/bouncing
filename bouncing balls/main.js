@@ -11,7 +11,7 @@ function random(min, max) {
     return num;
 }
 
-//declare a constructor function for the balls
+//declare a constructor function for the balls, their position, size and velocity
 function Ball(x, y, velX, velY, color, size) {
     this.x = x;
     this.y = y;
@@ -25,7 +25,7 @@ Ball.prototype.draw = function() {
     ctx.beginPath();  //states that we want to draw a shape on the paper
     ctx.fillStyle = this.color;  //defines the color of the ball
     ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI); // traces the arc's shape on the paper
-    ctx.fill(); //finishes draing the ball
+    ctx.fill(); //finishes drawing the ball
 }
 
 //define an update function 
@@ -49,7 +49,7 @@ Ball.prototype.update = function() {
 
     //define a method to detect when the balls collide
     Ball.prototype.CollisionDetect = function() {
-        for ( let j = 0; j < balls.length; j++) {   //start another loop through all the ball in the array
+        for (let j = 0; j < balls.length; j++) {   //start another loop through all the ball in the array
             if (!(this === balls[j])) {  //checks whether the current ball is the same as the one being invoked 
                 //check if any of the two circles' areas collide
                 const dx = this.x - balls[j].x;     
@@ -70,7 +70,7 @@ let balls = [];
 while (balls.length < 15) {
     let size = random(10, 20)
     let ball = new Ball(
-        //always draw atleast 1ball width away from the edge to avoid drawing errors
+        //always draw atleast 1-ball width away from the edge to avoid drawing errors
         random(0 + size, width - size),
         random(0 + size, height - size),
         random(-7, 7),
